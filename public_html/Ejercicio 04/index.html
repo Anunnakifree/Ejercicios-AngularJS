@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>  
+    <head>        
+        <meta charset="UTF-8">
+        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    </head>
+    <body>
+        <div ng-app="" ng-init="names=[
+            {name:'Steve',country:'Canada'},
+            {name:'Ferran', country:'Catalonia'},
+            {name:'Alessandro', country:'Italy'}]">
+
+            <p>Looping with players</p>
+            <ul>
+                <li ng-repeat="x in names">
+                    {{ x.name + ', ' + x.country}}</li>
+            </ul>
+        </div>
+    </body>
+</html>
