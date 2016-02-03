@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>        
+        <meta charset="UTF-8">
+        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    </head>
+    <body>
+        <div ng-app="LigaBaloncestoJH" ng-controller="namesCtrl">
+           <p>Looping with players (Name|Country|Total basket(ordered by)|Total asist):</p>
+            <ul>
+                <li ng-repeat="x in names| orderBy:'canTotal'">
+                    {{ x.name + ', ' + x.country + ' , ' + x.canTotal + ' , ' + x.asistTotal}}
+                </li>
+            </ul>
+        </div>
+        <script>
+            angular.module('LigaBaloncestoJH', []).controller('namesCtrl', function ($scope) {
+                $scope.names = [
+                    {name: 'Steve', country: 'Canada', canTotal: '20', asistTotal: '580'},
+                    {name: 'David', country: 'Spain', canTotal: '28', asistTotal: '100'},
+                    {name: 'Tracy', country: 'USA', canTotal: '70', asistTotal: '18'},
+                    {name: 'Heather', country: 'Norway', canTotal: '12', asistTotal: '78'},
+                    {name: 'Alfred', country: 'Denmark', canTotal: '84', asistTotal: '64'},
+                    {name: 'Will', country: 'Sweden', canTotal: '13', asistTotal: '91'},
+                    {name: 'Charly', country: 'Denmark', canTotal: '34', asistTotal: '56'},
+                ];
+            });
+        </script>
+    </body>
+</html>
