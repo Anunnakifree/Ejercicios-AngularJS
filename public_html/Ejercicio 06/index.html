@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>        
+        <meta charset="UTF-8">
+        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    </head>
+    <body>
+        <div ng-app="LigaBaloncestoJH" ng-controller="customersCtrl"> 
+            <ul>
+                <li ng-repeat="x in equipo">
+                    {{ x.Name + ', ' + x.Country}}
+                </li>
+            </ul>
+        </div>
+        <script>
+            var app = angular.module('LigaBaloncestoJH', []);
+            app.controller('customersCtrl', function ($scope, $http) {
+                $http.get("api/equipos").then(function (response) {
+                    $scope.equipo = response.data;
+                });
+            });
+        </script>
+    </body>
+</html>
