@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<style>
+    table, th , td  {
+        border: 1px solid grey;
+        border-collapse: collapse;
+        padding: 5px;
+        border-radius: 5px;
+    }
+</style>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<body>
+<div ng-app="LigaBaloncestoJH" ng-controller="customersCtrl">
+    <table>
+        <tr ng-repeat="x in equipo">
+            <td>{{ x.nombreEquipo}}</td>
+            <td>{{ x.localidad}}</td>
+        </tr>
+    </table>
+</div>
+<script>
+    var app = angular.module('LigaBaloncestoJH', []);
+    app.controller('customersCtrl', function ($scope, $http) {
+        $http.get("api/equipos")
+            .then(function (response) {
+                $scope.equipo = response.data;
+            });
+    });
+</script>
+</body>
+</html>
