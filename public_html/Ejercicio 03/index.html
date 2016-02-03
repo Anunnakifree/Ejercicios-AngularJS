@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>    
+    <head>        
+        <meta charset="UTF-8">
+        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    </head>
+    <body>
+        <div ng-app="" ng-init="person={firstName:'Steve',lastName:'Nash', position:'base'}">
+            <div ng-app="" ng-init="score={canastasTotales:'240',asistTotal:'879'}">
+                <p>His name is {{person.firstName}} {{ person.lastName}} and he plays as a {{person.position}}.</p>
+                <p>{{person.lastName}} scored {{score.canastasTotales}} baskets during last season and asist in 
+                    {{score.asistTotal}} baskets</p>
+            </div>
+
+    </body>
+</html>
