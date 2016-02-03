@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <style>
+        table, td  {
+            border: 1px solid grey;
+            border-collapse: collapse;
+            padding: 5px;
+        }
+    </style>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <body>
+        <div ng-app="LigaBaloncestoJH" ng-controller="customersCtrl">
+            <button ng-click="x.localidad =''">Set to unsorted</button>
+
+            <table>
+                <tr ng-repeat="x in equipo">
+                     <button ng-click="order('localidad')">localidad</button>
+                    <td ng-if="$odd" style="background-color:lightgrey">
+                        {{ x.nombreEquipo}}</td>
+                    <td ng-if="$even">
+                        {{ x.nombreEquipo}}</td>
+                    <td ng-if="$odd" style="background-color:darkgrey">
+                        {{ x.localidad}}</td>
+                    <td ng-if="$even">
+                        {{ x.localidad}}</td>
+                </tr>
+            </table>
+        </div>
+
+        <script>
+            var app = angular.module('LigaBaloncestoJH', []);
+            app.controller('customersCtrl', function ($scope, $http) {
+                $http.get("api/equipos")
+                        .then(function (response) {
+                            $scope.equipo = response.data;
+                        });
+            });
+        </script>
+    </body>
+</html>
